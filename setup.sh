@@ -1,8 +1,9 @@
 #!/bin/bash
 # Prerequisite:
-# 1) ESP mounted to /efi
-# 2) Windows partition mounted
-# 3) Root password added
+# 1) Windows EFI dual boot and partitioning and fstab completed
+# 2) ESP mounted to /efi
+# 3) Windows partition mounted
+# 4) Root password added
 
 HOST=$1
 USERNAME=$2
@@ -10,23 +11,21 @@ HOME_DIR="/home/${USERNAME}"
 SWAP_SIZE=3G
 
 #Console
-pacman --sync --refresh terminus-font
+pacman -S terminus-font
+echo KEYMAP=dk-latin1 >> /etc/vconsole.conf
 echo FONT=ter-132n >> /etc/vconsole.conf
 setfont  ter-132n
-
-echo "FONT=ter-132n" >> /etc/vconsole.conf
 
 # Timezone
 ln -fs /usr/share/zoneinfo/Europe/Copenhagen /etc/localtime
 hwclock --systohc
 
 # Locale
-echo en_US.UTF-8 UTF-8 > /etc/locale.gen
-echo en_DK.UTF-8 UTF-8 > /etc/locale.gen
-echo da_DK.UTF-8 UTF-8 > /etc/locale.gen
-echo LANG=en_US.UTF-8 > /etc/locale.conf
+echo en_US.UTF-8 UTF-8 >> /etc/locale.gen
+echo en_DK.UTF-8 UTF-8 >> /etc/locale.gen
+echo da_DK.UTF-8 UTF-8 >> /etc/locale.gen
+echo LANG=en_US.UTF-8 >> /etc/locale.conf
 locale-gen
-echo KEYMAP=dk-latin1 /etc/vconsole.conf
 
 # Hostname
 echo "$HOST" > /etc/hostname
@@ -48,13 +47,18 @@ systemctl enable ntpd.service
 useradd -m -G wheel -s /bin/bash "$USERNAME"
 
 # Nano
-echo -e 'EDITOR=nano' > /etc/environment
+echo EDITOR=nano >> /etc/environment
 
-# creating the swap file
+# Swap file
 fallocate -l "$SWAP_SIZE" /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
-echo /swapfile none swap defaults 0 0 >> /etc/fstab
+echo "/swapfile none swap defaults 0 0" >> /etc/fstab
+
+# NTFS
+pacman -S nfs-utils
+echo "nas:/home /mnt/homes nfs4 _netdev,auto 0 0" >> /etc/fstab
+echo "nas:/tank/media /mnt/media nfs4 _netdev,auto 0 0" >> /etc/fstab
 
 # auto-complete
 echo complete -cf sudo >> /etc/bash.bashrc
