@@ -40,13 +40,6 @@ echo "127.0.0.1	localhost" >> /etc/hosts
 echo "::1		localhost" >> /etc/hosts
 echo "127.0.1.1	${HOST}.localdomain	${HOST}" >> /etc/hosts
 
-# Bootloader
-pacman -S grub
-pacman -S os-prober
-pacman -S efibootmgr
-grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
-grub-mkconfig -o /boot/grub/grub.cfg
-
 # Service
 systemctl enable sshd.service
 systemctl enable dhcpcd.service
@@ -78,3 +71,10 @@ echo complete -cf man >> /etc/bash.bashrc
 # Cups
 pacman -S cups
 pacman -S cups-pdf 
+
+# Bootloader
+pacman -S grub
+pacman -S os-prober
+pacman -S efibootmgr
+grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
