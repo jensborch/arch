@@ -6,9 +6,10 @@
 # 4) Root password added
 set -e
 
-if [ $# -ge 2 ]
+if [ $# -ne 2 ]
 then
   echo "Usage: setup.sh <host> <username>"
+  exit 1
 fi
 
 HOST=$1
