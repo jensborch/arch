@@ -43,6 +43,7 @@ echo "127.0.1.1	${HOST}.localdomain	${HOST}" >> /etc/hosts
 # Bootloader
 pacman -S grub
 pacman -S os-prober
+pacman -S efibootmgr
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
