@@ -8,7 +8,7 @@ set -e
 
 if [ $# -ge 2 ]
 then
-  echo Usage: setup.sh <host> <username>
+  echo "Usage: setup.sh <host> <username>"
 fi
 
 HOST=$1
