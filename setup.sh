@@ -4,6 +4,12 @@
 # 2) ESP mounted to /efi
 # 3) Windows partition mounted
 # 4) Root password added
+set -e
+
+if [ $# -ge 2 ]
+then
+  echo Usage: setup.sh <host> <username>
+fi
 
 HOST=$1
 USERNAME=$2
@@ -34,6 +40,7 @@ echo "::1		localhost" >> /etc/hosts
 echo "127.0.1.1	${HOST}.localdomain	${HOST}" >> /etc/hosts
 
 # Bootloader
+pacman -S grub
 pacman -S os-probe
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -41,6 +48,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # Service
 systemctl enable sshd.service
 systemctl enable dhcpcd.service
+
+pacman -S ntp
 systemctl enable ntpd.service
 
 # Add user to wheel group so it can sudo
@@ -60,6 +69,10 @@ pacman -S nfs-utils
 echo "nas:/home /mnt/homes nfs4 _netdev,auto 0 0" >> /etc/fstab
 echo "nas:/tank/media /mnt/media nfs4 _netdev,auto 0 0" >> /etc/fstab
 
-# auto-complete
+# Auto-complete
 echo complete -cf sudo >> /etc/bash.bashrc
 echo complete -cf man >> /etc/bash.bashrc
+
+# Cups
+pacman -S cups
+pacman -S cups-pdf 
