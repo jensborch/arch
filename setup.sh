@@ -47,8 +47,9 @@ systemctl enable dhcpcd.service
 
 pacman -S ntp
 systemctl enable ntpd.service
-
 # Add user to wheel group so it can sudo
+
+pacman -S sudo
 useradd -m -G wheel -s /bin/bash "$USERNAME"
 
 # Nano
