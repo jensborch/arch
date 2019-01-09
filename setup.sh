@@ -41,6 +41,7 @@ echo "::1		localhost" >> /etc/hosts
 echo "127.0.1.1	${HOST}.localdomain	${HOST}" >> /etc/hosts
 
 # Service
+pacman -S openssh
 systemctl enable sshd.service
 systemctl enable dhcpcd.service
 
