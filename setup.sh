@@ -76,8 +76,6 @@ pacman -S cups-pdf
 systemctl enable org.cups.cupsd.service  
 
 # Bootloader
-pacman -S grub
-pacman -S os-prober
-pacman -S efibootmgr
+pacman -S grub os-prober efibootmgr intel-ucode
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg

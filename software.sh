@@ -9,16 +9,23 @@ fi
 USERNAME=$2
 usermod -a -G log,rfkill,sys,audio,kvm,optical,storage,video $USERNAME
 
+pacman -S aspell aspell-en
+
 # HiDPI
 echo "QT_AUTO_SCREEN_SCALE_FACTOR=1" >> /etc/environment
+
+# pacman -S intltool gnome-doc-utils gnome-common mono-addins dbus-sharp-glib  gconf-sharp media-player-info libgpod
+# git clone https://aur.archlinux.org/banshee.git
+# makepkg -si
+# mono-zeroconf-git  mono-upnp-git taglib-sharp-git
 
 # git clone https://aur.archlinux.org/epson-inkjet-printer-201207w.git
 # makepkg -si
 # pacman -S system-config-printer
-pacman -S iscan iscan-data
+# pacman -S iscan iscan-data
 
 # visudo
-# ALL ALL=(ALL) NOPASSWD: /usr/bin/wifi-menu
+# ALL ALL=(ALL) NOPASSWD: /usr/sbin/NetworkManager
 
 pacman -S --needed base-devel
 # pacman -S linux-headers
@@ -42,6 +49,7 @@ pacman -S nodejs
 pacman -S code
 pacman -S netbeans
 pacman -S libreoffice
+pacman -S libreoffice-fresh-da
 pacman -S keepassxc
 
 pacman -S vlc
@@ -63,8 +71,3 @@ echo "account required pam_tally2.so" >> /etc/pam.d/system-login
 
 passwd -l root
 
-pacman -S intel-ucode
-grub-mkconfig -o /boot/grub/grub.cfg
-
-pacman -S linux-zen-headers
-pacman -S linux-zen
