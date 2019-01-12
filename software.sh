@@ -14,6 +14,10 @@ pacman -S aspell aspell-en
 # HiDPI
 echo "QT_AUTO_SCREEN_SCALE_FACTOR=1" >> /etc/environment
 
+# Git
+pacman -S tk tcl
+# git clone https://aur.archlinux.org/git-cola.git
+
 # pacman -S intltool gnome-doc-utils gnome-common mono-addins dbus-sharp-glib  gconf-sharp media-player-info libgpod
 # git clone https://aur.archlinux.org/banshee.git
 # makepkg -si
