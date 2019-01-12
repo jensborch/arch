@@ -37,8 +37,11 @@ pacman -S tk tcl
 pacman -S --needed base-devel
 # pacman -S linux-headers broadcom-wl-dkms
 
-pacman -S tlp
+pacman -S tlp tlp-rdw 
 systemctl enable tlp.service
+systemctl enable tlp-sleep.service 
+systemctl mask systemd-rfkill.service
+systemctl mask systemd-rfkill.socket 
 
 pacman -S gdm
 systemctl enable gdm.service
