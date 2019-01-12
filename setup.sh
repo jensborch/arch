@@ -72,7 +72,8 @@ echo complete -cf man >> /etc/bash.bashrc
 
 # Cups
 pacman -S cups
-pacman -S cups-pdf 
+pacman -S cups-pdf
+systemctl enable org.cups.cupsd.service  
 
 # Bootloader
 pacman -S grub
