@@ -67,6 +67,7 @@ echo "nas:/home /mnt/homes nfs4 _netdev,auto 0 0" >> /etc/fstab
 echo "nas:/tank/media /mnt/media nfs4 _netdev,auto 0 0" >> /etc/fstab
 
 # Auto-complete
+pacman -S bash-completion
 echo complete -cf sudo >> /etc/bash.bashrc
 echo complete -cf man >> /etc/bash.bashrc
 
