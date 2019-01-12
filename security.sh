@@ -8,6 +8,7 @@ set -e
 pacman -S ufw gufw
 systemctl enable ufw.service
 ufw enable
+ufw allow proto udp from 192.168.1.0/16 to any port 137
 # ufw allow from 192.168.0.0/16 to any app SSH
 # ufw allow from 192.168.0.0/16 to any app CIFS
 # ufw allow from 192.168.0.0/16 to any port NFS

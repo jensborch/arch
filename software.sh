@@ -54,8 +54,15 @@ pacman -S jdk11-openjdk
 pacman -S nodejs
 pacman -S code
 pacman -S netbeans
-pacman -S libreoffice-fresh
-pacman -S libreoffice-fresh-da
+pacman -S libreoffice-fresh libreoffice-fresh-da
 pacman -S keepassxc
 pacman -S vlc
+pacman -S lm_sensors
+
+pacman -S hunspell-en_US
+# git clone https://aur.archlinux.org/hunspell-da.git
+# makepkg -si
+
+# Samba
+touch /etc/samba/smb.conf
 
