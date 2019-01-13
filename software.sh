@@ -3,7 +3,7 @@ set -e
 
 pacman -Syu
 
-pacman -S aspell aspell-en wget
+pacman -S aspell aspell-en wget curl
 # wget ftp://ftp.gnu.org/gnu/aspell/dict/da/aspell5-da-1.4.42-1.tar.bz2
 
 
@@ -58,6 +58,10 @@ pacman -S libreoffice-fresh libreoffice-fresh-da
 pacman -S keepassxc
 pacman -S vlc
 pacman -S lm_sensors
+pacman -S unrar cuetools shntool wavpack soundconverter easytag
+pacman -S meld
+pacman -S gradle
+pacman -S chromium
 
 pacman -S hunspell-en_US
 # git clone https://aur.archlinux.org/hunspell-da.git
