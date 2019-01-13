@@ -56,7 +56,6 @@ pacman -S jdk11-openjdk
 archlinux-java set java-11-openjdk
 pacman -S nodejs
 pacman -S code
-pacman -S netbeans
 pacman -S libreoffice-fresh libreoffice-fresh-da
 pacman -S keepassxc
 pacman -S vlc
@@ -65,6 +64,11 @@ pacman -S unrar cuetools shntool wavpack soundconverter easytag
 pacman -S meld
 pacman -S gradle
 pacman -S chromium
+
+pacman -S netbeans
+# gedit admin:///usr/share/applications/netbeans.desktop
+# Exec=env GDK_SCALE=2 netbeans %F
+
 
 pacman -S hunspell-en_US
 # git clone https://aur.archlinux.org/hunspell-da.git
