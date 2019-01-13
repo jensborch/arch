@@ -1,15 +1,7 @@
 #!/bin/bash
 set -e
 
-if [ $# -ne 2 ]
-then
-  echo "Usage: software.sh <username>"
-  exit 1
-fi
-USERNAME=$2
-usermod -a -G log,rfkill,sys,audio,kvm,optical,storage,video $USERNAME
-# TODO NFS groups
-
+pacman -Syu
 
 pacman -S aspell aspell-en wget
 # wget ftp://ftp.gnu.org/gnu/aspell/dict/da/aspell5-da-1.4.42-1.tar.bz2
@@ -22,20 +14,22 @@ echo "QT_AUTO_SCREEN_SCALE_FACTOR=1" >> /etc/environment
 pacman -S tk tcl
 # git clone https://aur.archlinux.org/git-cola.git
 
-# Banshee
-# pacman -S intltool gnome-doc-utils gnome-common mono-addins dbus-sharp-glib  gconf-sharp media-player-info libgpod
-# git clone https://aur.archlinux.org/banshee.git
-# makepkg -si
-# mono-zeroconf-git  mono-upnp-git taglib-sharp-git
-
 # Epson
 # git clone https://aur.archlinux.org/epson-inkjet-printer-201207w.git
 # makepkg -si
 # pacman -S system-config-printer
-# pacman -S iscan iscan-data
+pacman -S iscan iscan-data
 
-pacman -S --needed base-devel
-# pacman -S linux-headers broadcom-wl-dkms
+# git clone https://aur.archlinux.org/iscan-plugin-network.git
+
+cp /etc/sane.d/dll.conf /etc/sane.d/dll.conf.org
+echo "net" > /etc/sane.d/dll.conf
+echo "epkowa" >> /etc/sane.d/dll.conf
+
+cp /etc/sane.d/epkowa.conf /etc/sane.d/epkowa.conf.org
+echo "usb" > /etc/sane.d/epkowa.conf
+echo "scsi" >> /etc/sane.d/epkowa.conf
+echo "net epson" >> /etc/sane.d/epkowa.conf
 
 pacman -S tlp tlp-rdw 
 systemctl enable tlp.service
@@ -50,6 +44,9 @@ pacman -S gnome gnome-extra
 pacman -S networkmanager
 systemctl enable NetworkManager.service
 
+pacman -S gimp
+pacman -S darktable
+pacman -S rhythmbox grilo grilo-plugins gnome-python
 pacman -S firefox
 pacman -S firefox-i18n-da
 pacman -S jdk8-openjdk
