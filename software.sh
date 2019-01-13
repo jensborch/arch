@@ -9,6 +9,8 @@ pacman -S aspell aspell-en wget curl
 
 # HiDPI
 echo "QT_AUTO_SCREEN_SCALE_FACTOR=1" >> /etc/environment
+# echo "GDK_SCALE=2" >> /etc/environment
+# echo "ELM_SCALE=1.5" >> /etc/environment
 
 # Git
 pacman -S tk tcl
@@ -51,6 +53,7 @@ pacman -S firefox
 pacman -S firefox-i18n-da
 pacman -S jdk8-openjdk
 pacman -S jdk11-openjdk
+archlinux-java set java-11-openjdk
 pacman -S nodejs
 pacman -S code
 pacman -S netbeans
