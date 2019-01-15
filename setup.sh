@@ -26,6 +26,9 @@ setfont  ter-132n
 # Timezone
 ln -fs /usr/share/zoneinfo/Europe/Copenhagen /etc/localtime
 hwclock --systohc
+# timedatectl set-local-rtc 1
+# reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /d 1 /t REG_DWORD /f
+
 
 # Locale
 echo en_US.UTF-8 UTF-8 >> /etc/locale.gen
@@ -70,11 +73,6 @@ echo "nas:/tank/media /mnt/media nfs4 _netdev,auto 0 0" >> /etc/fstab
 pacman -S bash-completion
 echo complete -cf sudo >> /etc/bash.bashrc
 echo complete -cf man >> /etc/bash.bashrc
-
-# Cups
-pacman -S cups
-pacman -S cups-pdf
-systemctl enable org.cups.cupsd.service  
 
 # Bootloader
 pacman -S grub os-prober efibootmgr intel-ucode

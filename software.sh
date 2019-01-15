@@ -3,6 +3,7 @@ set -e
 
 pacman -Syu
 
+# Aspell
 pacman -S aspell aspell-en wget curl
 # wget ftp://ftp.gnu.org/gnu/aspell/dict/da/aspell5-da-1.4.42-1.tar.bz2
 
@@ -15,6 +16,11 @@ echo "QT_AUTO_SCREEN_SCALE_FACTOR=1" >> /etc/environment
 # Git
 pacman -S tk tcl
 # git clone https://aur.archlinux.org/git-cola.git
+
+# Cups
+pacman -S cups
+pacman -S cups-pdf
+systemctl enable org.cups.cupsd.service  
 
 # Epson
 # git clone https://aur.archlinux.org/epson-inkjet-printer-201207w.git
