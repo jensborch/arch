@@ -3,6 +3,8 @@ set -e
 
 pacman -Syu
 
+pacman -S pacman-contrib
+
 # Aspell
 pacman -S aspell aspell-en wget curl
 # wget ftp://ftp.gnu.org/gnu/aspell/dict/da/aspell5-da-1.4.42-1.tar.bz2
