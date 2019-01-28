@@ -41,11 +41,13 @@ echo "usb" > /etc/sane.d/epkowa.conf
 echo "scsi" >> /etc/sane.d/epkowa.conf
 echo "net epson" >> /etc/sane.d/epkowa.conf
 
-pacman -S tlp tlp-rdw 
+pacman -S tlp tlp-rdw ethtool smartmontools
 systemctl enable tlp.service
 systemctl enable tlp-sleep.service 
 systemctl mask systemd-rfkill.service
 systemctl mask systemd-rfkill.socket 
+
+echo "SUBSYSTEM==\"power_supply\", ATTR{status}==\"Discharging\", ATTR{capacity}==\"[0-5]\", RUN+=\"/usr/bin/shutdown -h now\"" > /etc/udev/rules.d/99-lowbat.rules
 
 pacman -S gdm
 systemctl enable gdm.service
