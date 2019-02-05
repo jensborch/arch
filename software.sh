@@ -74,6 +74,7 @@ pacman -S unrar cuetools shntool wavpack soundconverter easytag
 pacman -S meld
 pacman -S gradle
 pacman -S chromium
+pacman -S iio-sensor-proxy
 
 pacman -S netbeans
 # gedit admin:///usr/share/applications/netbeans.desktop
