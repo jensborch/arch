@@ -86,5 +86,6 @@ pacman -S hunspell-en_US
 # makepkg -si
 
 # Samba
+pacman -S samba
 touch /etc/samba/smb.conf
 
