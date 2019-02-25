@@ -14,8 +14,8 @@ ufw allow proto udp from 192.168.1.0/16 to any port 137
 # ufw allow from 192.168.0.0/16 to any port NFS
 
 echo "auth optional pam_faildelay.so delay=4000000" >> /etc/pam.d/system-login
-echo "auth required pam_tally2.so deny=3 unlock_time=600 onerr=succeed" >> /etc/pam.d/system-login
-echo "account required pam_tally2.so" >> /etc/pam.d/system-login
+# echo "auth required pam_tally2.so deny=3 unlock_time=600 onerr=succeed" >> /etc/pam.d/system-login
+# echo "account required pam_tally2.so" >> /etc/pam.d/system-login
 
 passwd -l root
 
