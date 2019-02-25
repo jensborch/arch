@@ -19,3 +19,6 @@ echo "auth optional pam_faildelay.so delay=4000000" >> /etc/pam.d/system-login
 
 passwd -l root
 
+pacman -S polkit 
+cp files/org.freedesktop.logind.policy /etc/polkit-1/localauthority.conf.d/
+
