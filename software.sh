@@ -49,37 +49,41 @@ systemctl mask systemd-rfkill.socket
 
 echo "SUBSYSTEM==\"power_supply\", ATTR{status}==\"Discharging\", ATTR{capacity}==\"[0-5]\", RUN+=\"/usr/bin/shutdown -h now\"" > /etc/udev/rules.d/99-lowbat.rules
 
+# Gnome
 pacman -S gdm
 systemctl enable gdm.service
 pacman -S gnome gnome-extra
+pacman -S rhythmbox grilo grilo-plugins gnome-python
+pacman -S iio-sensor-proxy
+# dbus-launch gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false
 
 pacman -S networkmanager
 systemctl enable NetworkManager.service
 
-pacman -S gimp
-pacman -S darktable
-pacman -S rhythmbox grilo grilo-plugins gnome-python
+# Java
+pacman -S jdk8-openjdk jdk11-openjdk
+archlinux-java set java-11-openjdk
+
+pacman -S chromium
 pacman -S firefox
 pacman -S firefox-i18n-da
-pacman -S jdk8-openjdk
-pacman -S jdk11-openjdk
-archlinux-java set java-11-openjdk
+
+pacman -S gimp
+pacman -S darktable
+
+pacman -S libreoffice-fresh libreoffice-fresh-da
 pacman -S nodejs
 pacman -S code
-pacman -S libreoffice-fresh libreoffice-fresh-da
 pacman -S keepassxc
 pacman -S vlc
 pacman -S lm_sensors
 pacman -S unrar cuetools shntool wavpack soundconverter easytag
 pacman -S meld
 pacman -S gradle
-pacman -S chromium
-pacman -S iio-sensor-proxy
 
 pacman -S netbeans
 # gedit admin:///usr/share/applications/netbeans.desktop
 # Exec=env GDK_SCALE=2 netbeans %F
-
 
 pacman -S hunspell-en_US
 # git clone https://aur.archlinux.org/hunspell-da.git
@@ -88,4 +92,3 @@ pacman -S hunspell-en_US
 # Samba
 pacman -S samba
 touch /etc/samba/smb.conf
-
