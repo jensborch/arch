@@ -14,3 +14,8 @@ yay iscan-plugin-network
 yay tusk
 yay google-chrome
 
+yay icaclient
+mkdir -p $HOME/.ICAClient/cache
+cp /opt/Citrix/ICAClient/config/{All_Regions,Trusted_Region,Unknown_Region,canonicalization,regions}.ini $HOME/.ICAClient/
+
+yay skypeforlinux-stable-bin
