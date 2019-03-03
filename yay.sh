@@ -10,6 +10,7 @@ yay git-cola
 
 yay epson-inkjet-printer-201207w
 yay iscan-plugin-network
+sudo pacman -S system-config-printer
 
 yay tusk
 yay google-chrome
