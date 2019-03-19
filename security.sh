@@ -23,3 +23,4 @@ pacman -S polkit
 mkdir -p /etc/polkit-1/localauthority.conf.d/
 cp files/org.freedesktop.logind.policy /etc/polkit-1/localauthority.conf.d/
 
+groupadd -g 2000 shared
