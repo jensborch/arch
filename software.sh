@@ -92,3 +92,5 @@ pacman -S hunspell-en_US
 # Samba
 pacman -S samba
 touch /etc/samba/smb.conf
+
+sysctl kernel.sysrq=1
