@@ -95,3 +95,7 @@ touch /etc/samba/smb.conf
 
 # sysctl kernel.sysrq=1
 echo "kernel.sysrq = 1" > /etc/sysctl.d/99-sysctl.conf
+
+# Gnomit
+flatpak install flathub ind.ie.Gnomit
+git config --global core.editor "flatpak run ind.ie.Gnomit"

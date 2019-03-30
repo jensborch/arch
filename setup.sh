@@ -74,6 +74,10 @@ pacman -S bash-completion
 echo complete -cf sudo >> /etc/bash.bashrc
 echo complete -cf man >> /etc/bash.bashrc
 
+# Git
+echo source /usr/share/git/completion/git-prompt.sh >> /etc/bash.bashrc
+echo "PS1='[\u@\h \W\$(__git_ps1 \" (%s)\")]\$ '" >> /etc/skel/.bashrc
+
 # Bootloader
 pacman -S grub os-prober efibootmgr intel-ucode
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
