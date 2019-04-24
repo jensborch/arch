@@ -72,7 +72,7 @@ pacman -S gimp
 pacman -S darktable
 
 pacman -S libreoffice-fresh libreoffice-fresh-da
-pacman -S nodejs
+pacman -S nodejs npm
 pacman -S code
 pacman -S keepassxc
 pacman -S vlc
@@ -99,3 +99,7 @@ echo "kernel.sysrq = 1" > /etc/sysctl.d/99-sysctl.conf
 # Gnomit
 flatpak install flathub ind.ie.Gnomit
 git config --global core.editor "flatpak run ind.ie.Gnomit"
+
+# gthump
+pacman -S gthumb libraw exiv2 libchamplain liboauth
+
