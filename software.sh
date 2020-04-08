@@ -84,6 +84,8 @@ pacman -S gradle
 pacman -S netbeans
 # gedit admin:///usr/share/applications/netbeans.desktop
 # Exec=env GDK_SCALE=2 netbeans %F
+# gedit admin:///usr/etc/netbeans.conf
+# netbeans_jdkhome="/usr/lib/jvm/java-11-openjdk/"
 
 pacman -S hunspell-en_US
 # git clone https://aur.archlinux.org/hunspell-da.git
