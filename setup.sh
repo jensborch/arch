@@ -82,3 +82,4 @@ echo "PS1='[\u@\h \W\$(__git_ps1 \" (%s)\")]\$ '" >> /etc/skel/.bashrc
 pacman -S grub os-prober efibootmgr intel-ucode
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
+

@@ -63,6 +63,9 @@ systemctl enable NetworkManager.service
 # Java
 pacman -S jdk8-openjdk jdk11-openjdk
 archlinux-java set java-11-openjdk
+echo '' >> /etc/profile
+echo 'export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")' >> /etc/profile
+
 
 pacman -S chromium
 pacman -S firefox
